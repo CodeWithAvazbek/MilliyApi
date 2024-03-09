@@ -19,6 +19,9 @@ from django.urls import path, include
 
 import debug_toolbar
 
+admin.site.site_header = "Milliy Api Admin"
+admin.site.index_title = "Admin by Avazbek"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),

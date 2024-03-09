@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from rest_framework.mixins import ListModelMixin
+
 from .serializers import UserModelSerializers
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -37,6 +39,13 @@ class LoginApiView(APIView):
                             status=status.HTTP_404_NOT_FOUND)
 
         success = {
-           "Success": "Successfully, Login"
+            "Success": "Successfully, Login"
         }
         return Response(success, status=status.HTTP_200_OK)
+
+
+class ListUsersApiView(APIView, ListModelMixin):
+    def get(self, request, *args, **kwargs):
+        queryset = UserModel.objects.all()
+        serializer = UserModelSerializers(queryset, many=True)
+        return Response(serializer.data)
