@@ -25,5 +25,6 @@ admin.site.index_title = "Admin by Avazbek"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+    path('store/', include('store.urls')),
     path('__debug__/', include(debug_toolbar.urls))
 ]

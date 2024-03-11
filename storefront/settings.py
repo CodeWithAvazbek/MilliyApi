@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',  # new
 
     'users',  # new
+    'store',
 
 ]
 
@@ -86,8 +87,12 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':  'Milli_DB',
+        'USER': 'postgres',
+        'PASSWORD': 'messi10.',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

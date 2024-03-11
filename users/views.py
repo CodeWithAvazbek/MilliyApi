@@ -9,6 +9,7 @@ from rest_framework import status
 
 
 def say_hello(request):
+
     return HttpResponse('<h1>Hello World</h1>')
 
 
